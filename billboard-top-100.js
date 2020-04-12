@@ -275,6 +275,11 @@ function getChart(name, date, cb) {
     if (chart.songs.length > 1) {
       callback(null, chart);
     } else {
+      if (html.includes('Please complete the security')) {
+        callback('Security Check Response');
+        return;
+      }
+      // console.log(html);
       callback('Songs not found.', null);
     }
   });
